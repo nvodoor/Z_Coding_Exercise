@@ -4,7 +4,8 @@
   "description": "Zillow Front End Coding Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --w"
   },
   "author": "Neil Vodoor",
   "license": "MIT",
