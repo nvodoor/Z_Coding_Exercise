@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './app.scss';
-import Maltese from './Maltese_puppy.jpeg';
-import Hazard from './Biohazard_symbol.svg';
-import Thousand from './River.svg'; 
+import { Provider } from 'react-redux';
+import store from '../redux/store.js';
+import PhotoGallery from './PhotoGallery.jsx';
 
 const App = () => {
   return (
-    <div>
-      <h1>Example React App</h1>
-      <img src={Maltese}></img>
-      <img src={Hazard}></img>
-      <img src={Thousand}></img>
+    <div className='app-container'>
+      <h1>PhotoGallery</h1>
+      <PhotoGallery />
     </div>
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+<Provider store={store}>
+    <App />
+</Provider>, 
+document.getElementById('app'));
