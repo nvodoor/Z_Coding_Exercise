@@ -2,10 +2,11 @@
   "name": "photogallery",
   "version": "1.0.0",
   "description": "Zillow Front End Coding Project",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --w"
+    "watch": "webpack --w",
+    "start": "nodemon server/server.js"
   },
   "author": "Neil Vodoor",
   "license": "MIT",
@@ -31,6 +32,7 @@
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.0"
   }

@@ -1,4 +1,3 @@
-const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
@@ -8,7 +7,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Photo Gallery'
+      template: './template/index.html'
     }),
     new MiniCSSExtractPlugin({
       filename: '[name].[hash].css',
@@ -42,7 +41,25 @@ module.exports = {
       {
         test: /\.(png|jpeg|jpg|gif)$/,
         use: [
-          'file-loader'
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 1,
+              name: '[hash]-[name].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 1000000,
+              name: '[hash]-[name].svg'
+            }
+          }
         ]
       }
     ]
