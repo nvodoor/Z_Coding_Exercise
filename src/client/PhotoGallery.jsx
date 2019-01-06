@@ -7,9 +7,9 @@ import './photo-container.scss'
 const PhotoGallery = ({moveLeft, moveRight}) => {
   return (
     <div className='photo-container'>
-      <i className="fas fa-arrow-circle-left fa-7x" onClick={moveLeft}></i>
+      <i className="fas fa-arrow-circle-left fa-7x center-arrow" onClick={moveLeft}></i>
       <Photo />
-      <i className="fas fa-arrow-circle-right fa-7x" onClick={moveRight}></i>
+      <i className="fas fa-arrow-circle-right fa-7x center-arrow" onClick={moveRight}></i>
     </div>
   )
 }
