@@ -2,7 +2,7 @@ import Puppies from '../../misc/puppyImages.js';
 
 const initialState = {
   images: Puppies,
-  image: 0
+  image: 0,
 }
 
 export default (state = initialState, action) => {

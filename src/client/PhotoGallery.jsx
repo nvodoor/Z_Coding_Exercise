@@ -3,6 +3,8 @@ import { moveRight, moveLeft } from '../redux/actions.js';
 import { connect } from 'react-redux';
 import Photo from './Photo.jsx';
 import './photo-container.scss'
+import PropTypes from 'prop-types';
+
 
 const PhotoGallery = ({moveLeft, moveRight}) => {
   return (
@@ -12,6 +14,11 @@ const PhotoGallery = ({moveLeft, moveRight}) => {
       <i className="fas fa-arrow-circle-right fa-7x center-arrow" onClick={moveRight}></i>
     </div>
   )
+}
+
+PhotoGallery.PropTypes = {
+  moveLeft: PropTypes.func,
+  moveRight: PropTypes.func
 }
 
 const mapDispatchToProps = dispatch => {
