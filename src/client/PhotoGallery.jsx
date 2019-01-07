@@ -6,19 +6,41 @@ import './photo-container.scss'
 import PropTypes from 'prop-types';
 
 
-const PhotoGallery = ({moveLeft, moveRight}) => {
+const PhotoGallery = ({images, image, css_class, moveLeft, moveRight}) => {
   return (
     <div className='photo-container'>
       <i className="fas fa-arrow-circle-left fa-7x center-arrow" onClick={moveLeft}></i>
-      <Photo />
+      {images.map((imag, i) => {
+        if (i === image) {
+          return <Photo source={imag.src} 
+                        css_class={css_class} 
+                        key={i}  
+                        caption={imag.caption} 
+                        text_show={'text-overlay text-visible'}/>
+        } else {
+          return <Photo source={imag.src} 
+                    css_class={'image-render'} 
+                    key={i} 
+                    caption={imag.caption} 
+                    text_show={'text-overlay text-invisible'}/>
+        }
+      })}
       <i className="fas fa-arrow-circle-right fa-7x center-arrow" onClick={moveRight}></i>
     </div>
   )
 }
 
 PhotoGallery.PropTypes = {
-  moveLeft: PropTypes.func,
-  moveRight: PropTypes.func
+  moveLeft: PropTypes.func.isRequired,
+  moveRight: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => {
+  return {
+    images: state.images,
+    image: state.image,
+    css_class: state.class
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -32,4 +54,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(PhotoGallery);
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoGallery);

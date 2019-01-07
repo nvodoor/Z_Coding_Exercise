@@ -3,6 +3,7 @@ import Puppies from '../../misc/puppyImages.js';
 const initialState = {
   images: Puppies,
   image: 0,
+  class: 'image-render active'
 }
 
 export default (state = initialState, action) => {

@@ -3,26 +3,20 @@ import { connect } from 'react-redux';
 import './photo.scss';
 import PropTypes from 'prop-types';
 
-const Photo = ({images, image}) => {
+const Photo = ({source, caption, css_class, text_show}) => {
   return (
     <div>
-      <img src={images[image].src} className='image'></img>
-      <p className='text-overlay'>{images[image].caption}</p>
+      <img src={source} className={css_class}></img>
+      <p className={text_show}>{caption}</p>
     </div>
   )
 }
 
 Photo.PropTypes = {
-  images: PropTypes.array,
-  image: PropTypes.number
+  source: PropTypes.string.isRequired,
+  caption: PropTypes.string.isRequired,
+  css_class: PropTypes.string.isRequired,
+  text_show: PropTypes.string.isRequired
 }
 
-
-const mapStateToProps = state => {
-  return {
-    images: state.images,
-    image: state.image,
-  }
-}
-
-export default connect(mapStateToProps, null)(Photo);
+export default Photo;

@@ -5,5 +5,8 @@
 
 .center-arrow {
   display: flex;
-  align-items: center;
+  align-items: space-around;
+  justify-content: center;
+  width: 650px;
+  z-index: 2;
 }
