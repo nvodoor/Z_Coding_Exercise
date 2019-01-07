@@ -32,7 +32,10 @@ const PhotoGallery = ({images, image, css_class, moveLeft, moveRight}) => {
 
 PhotoGallery.PropTypes = {
   moveLeft: PropTypes.func.isRequired,
-  moveRight: PropTypes.func.isRequired
+  moveRight: PropTypes.func.isRequired,
+  images: PropTypes.array.isRequired,
+  image: PropTypes.number.isRequired,
+  css_class: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => {
